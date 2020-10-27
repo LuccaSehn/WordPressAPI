@@ -72,7 +72,7 @@ get_header();
                 the_post();
 
                 get_template_part( 'template-parts/content', get_post_type() );
-                get_template_part( 'template-parts/client-2018', get_post_type() );
+                get_template_part( 'template-parts/client-recommend-clothes', get_post_type() );
 
             }
         } elseif ( is_search() ) {

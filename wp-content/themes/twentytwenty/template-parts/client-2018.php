@@ -5,11 +5,13 @@
         if (!is_wp_error($dataShoppingHistory)) {
             $clients2018 = array();
             foreach ($dataShoppingHistory as $data) {
+                // Filtra dados onde a data for igual a 2018
                 $date = explode('-', $data['data']);
                 if ($date[2] == '2018') {
                     array_push($clients2018, $data['cliente']);
                 }
             }
+            // Inverte as chaves e valores do array
             $clients2018 = array_flip($clients2018);
         }
     }

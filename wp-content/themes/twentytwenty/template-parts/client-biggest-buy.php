@@ -5,13 +5,16 @@
         if (!is_wp_error($dataShoppingHistory)) {
             $moreExpensiveItems = array();
             foreach ($dataShoppingHistory as $data) {
+                // Filtra dados onde a data for igual a 2019
                 $date = explode('-', $data['data']);
                 if ($date[2] == '2019') {
                     foreach ($data['itens'] as $item) {
+                        // Verifica se $item['preco'] é maior que o valor $moreExpensiveItems[$data['cliente']], caso verdade, substitui
                         $moreExpensiveItems[$data['cliente']] = $item['preco'] > $moreExpensiveItems[$data['cliente']] ? $item['preco'] : $moreExpensiveItems[$data['cliente']];
                     }
                 }
             }
+            // Ordena um array em ordem descrescente mantendo a associação entre índices e valores
             arsort($moreExpensiveItems);
         }
     }
