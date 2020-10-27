@@ -10,7 +10,7 @@
                 if ($date[2] == '2019') {
                     foreach ($data['itens'] as $item) {
                         // Verifica se $item['preco'] é maior que o valor $moreExpensiveItems[$data['cliente']], caso verdade, substitui
-                        $moreExpensiveItems[$data['cliente']] = $item['preco'] > $moreExpensiveItems[$data['cliente']] ? $item['preco'] : $moreExpensiveItems[$data['cliente']];
+                        $moreExpensiveItems[$data['cliente']] = empty($moreExpensiveItems[$data['cliente']]) || ($item['preco'] > $moreExpensiveItems[$data['cliente']]) ? $item['preco'] : $moreExpensiveItems[$data['cliente']];
                     }
                 }
             }
